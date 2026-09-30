@@ -11,10 +11,13 @@
 ### 1. Список таблиць бази даних
 Спочатку перевіримо, які таблиці є в нашій базі даних:
 ```sql
-SELECT table_name
+SELECT
+    table_name
 FROM information_schema.tables
-WHERE table_schema = 'public'
-ORDER BY table_name;
+WHERE
+    table_schema = 'public'
+ORDER BY
+    table_name;
 ```
 Результат: У базі даних створено 12 основних таблиць: categories, customer_orders_summary, customers, employee_performance, employees, monthly_sales_report
 order_items, orders, product_sales_summary, products, regions, suppliers.
@@ -26,19 +29,37 @@ order_items, orders, product_sales_summary, products, regions, suppliers.
 
 ```sql
 -- Отримати всіх клієнтів
-SELECT * FROM customers;
+SELECT
+    *
+FROM customers;
 
 -- Вивести назви товарів і їхні ціни
-SELECT product_name, unit_price FROM products;
+SELECT
+    product_name,
+    unit_price
+FROM products;
 
 -- Фільтрація співробітників за посадою (відділ продажів)
-SELECT * FROM employees WHERE title ILIKE '%продаж%';
+SELECT
+    *
+FROM employees
+WHERE
+    title ILIKE '%продаж%';
 
 -- Замовлення зі статусом delivered
-SELECT * FROM orders WHERE order_status = 'delivered';
+SELECT
+    *
+FROM orders
+WHERE
+    order_status = 'delivered';
 
 -- Сортування товарів за зростанням ціни та обмеження ліміту (топ-10 найдорожчих)
-SELECT * FROM products ORDER BY unit_price DESC LIMIT 10;
+SELECT
+    *
+FROM products
+ORDER BY
+    unit_price DESC
+LIMIT 10;
 ```
 
 Результат: Отримано 15 записів клієнтів, включаючи як фізичних осіб, так і юридичні особи з різних міст України.
@@ -50,15 +71,38 @@ SELECT * FROM products ORDER BY unit_price DESC LIMIT 10;
 
 ```SQL
 -- Клієнти, чиї імена починаються на "Іван"
-SELECT * FROM customers WHERE contact_name LIKE 'Іван%';
+SELECT
+    *
+FROM customers
+WHERE
+    contact_name LIKE 'Іван%';
 
 -- Товари, в назві яких є слово "phone" або "телефон"
-SELECT * FROM products WHERE product_name ILIKE '%phone%' OR product_name ILIKE '%телефон%';
+SELECT
+    *
+FROM products
+WHERE
+    product_name ILIKE '%phone%'
+    OR product_name ILIKE '%телефон%';
 
 -- Самостійні приклади:
-SELECT * FROM customers WHERE email LIKE '%@gmail.com';
-SELECT * FROM products WHERE product_name ILIKE '%чохол%';
-SELECT * FROM employees WHERE last_name LIKE '%ук';
+SELECT
+    *
+FROM customers
+WHERE
+    email LIKE '%@gmail.com';
+
+SELECT
+    *
+FROM products
+WHERE
+    product_name ILIKE '%чохол%';
+
+SELECT
+    *
+FROM employees
+WHERE
+    last_name LIKE '%ук';
 ```
 Скріншот результату:![Пошук LIKE](screenshots/sql%20skrin%20krok3.png)
 
@@ -67,13 +111,28 @@ SELECT * FROM employees WHERE last_name LIKE '%ук';
 
 ```SQL
 -- Товари у ціновому діапазоні від 15000 до 50000 грн
-SELECT * FROM products WHERE unit_price > 15000 AND unit_price < 50000;
+SELECT
+    *
+FROM products
+WHERE
+    unit_price > 15000
+    AND unit_price < 50000;
 
 -- Активні товари (є на складі і не зняті з виробництва)
-SELECT * FROM products WHERE units_in_stock > 0 AND NOT discontinued;
+SELECT
+    *
+FROM products
+WHERE
+    units_in_stock > 0
+    AND NOT discontinued;
 
 -- Клієнти не з Києва, у яких вказано номер телефону
-SELECT * FROM customers WHERE NOT city = 'Київ' AND phone IS NOT NULL;
+SELECT
+    *
+FROM customers
+WHERE
+    NOT city = 'Київ'
+    AND phone IS NOT NULL;
 ```
 Скріншот результату:![Логічні оператори](screenshots/sql%20skrin%20krok4.png)
 
@@ -82,13 +141,25 @@ SELECT * FROM customers WHERE NOT city = 'Київ' AND phone IS NOT NULL;
 
 ```SQL
 -- Клієнти з міст Київ, Харків, Одеса, Дніпро (оператор IN)
-SELECT * FROM customers WHERE city IN ('Київ', 'Харків', 'Одеса', 'Дніпро');
+SELECT
+    *
+FROM customers
+WHERE
+    city IN ('Київ', 'Харків', 'Одеса', 'Дніпро');
 
 -- Замовлення за перший квартал 2024 року (оператор BETWEEN)
-SELECT * FROM orders WHERE order_date BETWEEN '2024-01-01' AND '2024-03-31';
+SELECT
+    *
+FROM orders
+WHERE
+    order_date BETWEEN '2024-01-01' AND '2024-03-31';
 
 -- Клієнти без вказаної компанії — фізичні особи (оператор IS NULL)
-SELECT * FROM customers WHERE company_name IS NULL;
+SELECT
+    *
+FROM customers
+WHERE
+    company_name IS NULL;
 ```
 Скріншот результату:![Оператори IN BETWEEN](screenshots/sql%20skrin%20krok5.png)
 
@@ -97,10 +168,20 @@ SELECT * FROM customers WHERE company_name IS NULL;
 
 ```SQL
 -- Складне сортування за категорією (зростання) та ціною (спадання)
-SELECT * FROM products ORDER BY category_id ASC, unit_price DESC;
+SELECT
+    *
+FROM products
+ORDER BY
+    category_id ASC,
+    unit_price DESC;
 
 -- Пагінація: виведення другої сторінки товарів (по 10 штук на сторінку, пропускаємо перші 10)
-SELECT * FROM products ORDER BY product_name LIMIT 10 OFFSET 10;
+SELECT
+    *
+FROM products
+ORDER BY
+    product_name
+LIMIT 10 OFFSET 10;
 ```
 Скріншот результату:![Пагінація](screenshots/sql%20skrin%20krok6.png)
 # Контрольні запитання
