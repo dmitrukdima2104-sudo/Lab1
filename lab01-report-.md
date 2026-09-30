@@ -22,7 +22,7 @@ ORDER BY
 Результат: У базі даних створено 12 основних таблиць: categories, customer_orders_summary, customers, employee_performance, employees, monthly_sales_report
 order_items, orders, product_sales_summary, products, regions, suppliers.
 
-Скріншот:![Список таблиць](screenshots/sql%20skrin-1.png)
+Скріншот:![Список таблиць](screenshots/sql%20skrin--1.png)
 
 ### 2. Базові запити, фільтрація та сортування (Рівень 1)
 У цьому блоці ми робимо прості вибірки, сортування та обмежуємо кількість рядків.
@@ -64,7 +64,7 @@ LIMIT 10;
 
 Результат: Отримано 15 записів клієнтів, включаючи як фізичних осіб, так і юридичні особи з різних міст України.
 
-Скріншот![Базові запити](screenshots/sql%20skrin%20krok2.png)
+Скріншот![Базові запити](screenshots/sql%20skrin%20krok-2.png)
 
 ### 3. Пошук за зразком (LIKE / ILIKE)
 Використовується для пошуку підрядків (наприклад, за частиною імені чи назви товару).
@@ -104,7 +104,7 @@ FROM employees
 WHERE
     last_name LIKE '%ук';
 ```
-Скріншот результату:![Пошук LIKE](screenshots/sql%20skrin%20krok3.png)
+Скріншот результату:![Пошук LIKE](screenshots/sql%20skrin%20krok-3.png)
 
 ### 4. Логічні оператори (AND, OR, NOT)
 Дозволяють комбінувати кілька умов одночасно.
@@ -134,7 +134,7 @@ WHERE
     NOT city = 'Київ'
     AND phone IS NOT NULL;
 ```
-Скріншот результату:![Логічні оператори](screenshots/sql%20skrin%20krok4.png)
+Скріншот результату:![Логічні оператори](screenshots/sql%20skrin%20krok-4.png)
 
 ### 5. Оператори IN, BETWEEN, IS NULL
 Спеціальні оператори для перевірки списків, інтервалів дат/цін та пустих полів (NULL).
@@ -161,7 +161,7 @@ FROM customers
 WHERE
     company_name IS NULL;
 ```
-Скріншот результату:![Оператори IN BETWEEN](screenshots/sql%20skrin%20krok5.png)
+Скріншот результату:![Оператори IN BETWEEN](screenshots/sql%20skrin%20krok-5.png)
 
 ### 6. Складне сортування та пагінація (OFFSET / LIMIT)
 Використовується для сортування за кількома колонкам та поділу великої кількості даних на сторінки.
@@ -183,7 +183,7 @@ ORDER BY
     product_name
 LIMIT 10 OFFSET 10;
 ```
-Скріншот результату:![Пагінація](screenshots/sql%20skrin%20krok6.png)
+Скріншот результату:![Пагінація](screenshots/sql%20skrin%20krok-6.png)
 # Контрольні запитання
 ## 1. Що таке SQL і для чого він призначений? Поясніть різницю між декларативною та імперативною мовами програмування на прикладі SQL.
 Відповідь: SQL (Structured Query Language) — це стандартизована мова програмування, призначена для створення, модифікації та керування даними в реляційних базах даних.
