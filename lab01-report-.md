@@ -19,7 +19,7 @@ ORDER BY table_name;
 Результат: У базі даних створено 12 основних таблиць: categories, customer_orders_summary, customers, employee_performance, employees, monthly_sales_report
 order_items, orders, product_sales_summary, products, regions, suppliers.
 
-Скріншот:![Список таблиць](screenshots/sql%20skrin1.png)
+Скріншот:![Список таблиць](screenshots/sql%20skrin-1.png)
 
 ### 2. Базові запити, фільтрація та сортування (Рівень 1)
 У цьому блоці ми робимо прості вибірки, сортування та обмежуємо кількість рядків.
