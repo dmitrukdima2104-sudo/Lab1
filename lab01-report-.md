@@ -21,7 +21,7 @@ order_items, orders, product_sales_summary, products, regions, suppliers.
 
 Скріншот:![Список таблиць](screenshots/sql%20skrin1.png)
 
-2. Базові запити, фільтрація та сортування (Рівень 1)
+### 2. Базові запити, фільтрація та сортування (Рівень 1)
 У цьому блоці ми робимо прості вибірки, сортування та обмежуємо кількість рядків.
 
 ```sql
@@ -45,7 +45,7 @@ SELECT * FROM products ORDER BY unit_price DESC LIMIT 10;
 
 Скріншот![Базові запити](screenshots/sql%20skrin%20krok2.png)
 
-3. Пошук за зразком (LIKE / ILIKE)
+### 3. Пошук за зразком (LIKE / ILIKE)
 Використовується для пошуку підрядків (наприклад, за частиною імені чи назви товару).
 
 ```SQL
@@ -62,7 +62,7 @@ SELECT * FROM employees WHERE last_name LIKE '%ук';
 ```
 Скріншот результату:![Пошук LIKE](screenshots/sql%20skrin%20krok3.png)
 
-4. Логічні оператори (AND, OR, NOT)
+### 4. Логічні оператори (AND, OR, NOT)
 Дозволяють комбінувати кілька умов одночасно.
 
 ```SQL
@@ -77,7 +77,7 @@ SELECT * FROM customers WHERE NOT city = 'Київ' AND phone IS NOT NULL;
 ```
 Скріншот результату:![Логічні оператори](screenshots/sql%20skrin%20krok4.png)
 
-5. Оператори IN, BETWEEN, IS NULL
+### 5. Оператори IN, BETWEEN, IS NULL
 Спеціальні оператори для перевірки списків, інтервалів дат/цін та пустих полів (NULL).
 
 ```SQL
@@ -92,7 +92,7 @@ SELECT * FROM customers WHERE company_name IS NULL;
 ```
 Скріншот результату:![Оператори IN BETWEEN](screenshots/sql%20skrin%20krok5.png)
 
-6. Складне сортування та пагінація (OFFSET / LIMIT)
+### 6. Складне сортування та пагінація (OFFSET / LIMIT)
 Використовується для сортування за кількома колонкам та поділу великої кількості даних на сторінки.
 
 ```SQL
